@@ -1,2 +1,11 @@
 <h1>Sign Up!</h1>
 
+<%= simple_form_for @user do |f| %>
+  <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+  <br>
+   <br>
+  <%= f.input :password, hint: 'No special characters.' %>
+  <br>
+   <br>
+  <%= f.button :submit %>
+<% end %>
