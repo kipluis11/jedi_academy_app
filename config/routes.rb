@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  root 'sessions#welcome'
+  
   devise_for :users
   devise_for :admins
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
-  root 'sessions#welcome'
+  
   resources :powers
   resources :trainings
   resources :masters
