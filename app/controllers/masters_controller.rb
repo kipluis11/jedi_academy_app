@@ -1,5 +1,5 @@
 class MastersController < ApplicationController
-    before_action :master_view_only!, only: [:index, :show, :create]
+    before_action :master_view_only!, only: [:index, :show]
 
     def index
         @masters = Master.all
