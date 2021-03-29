@@ -2,11 +2,28 @@ class TrainingsController < ApplicationController
     before_action :training_view_only! only: [:index, :show]
 
     def index
-        @trainings = Power.all
+        if params[:master_id]
+            @master = Master.find_by(id: params[:master_id])
+            if @master.nil?
+                redirect_to master_path, alert: "Master is not availble in the archives"
+            else
+                @trainings = @master.trainings
+            end
+        else
+            @trainings = Training.all
+        end
     end
 
     def show
-        @training = Training.find_by(params[:id])
+        if params[:master_id]
+            @master = Master.find_by(id: params[:master_id])
+            @training = @master.trainings.find_by(id: params[:id])
+            if @training.nil?
+                redirect_to master_trainings_path(@master), alert: "Master is not available in archives"
+            end
+        else
+            @training = Training.find(params[:id])
+        end
     end
 
     def new
