@@ -1,5 +1,5 @@
 class PowersController < ApplicationController
-    before_action :powers_view_only! only: [:index, :show]
+    before_action :powers_view_only!, only: [:index, :show]
 
     def index
         if params[:training_id]

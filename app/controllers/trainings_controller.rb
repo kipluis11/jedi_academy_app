@@ -1,5 +1,5 @@
 class TrainingsController < ApplicationController
-    before_action :training_view_only! only: [:index, :show]
+    before_action :training_view_only!, only: [:index, :show]
 
     def index
         if params[:master_id]
@@ -37,6 +37,7 @@ class TrainingsController < ApplicationController
             redirect_to @trainings
         else
             render :edit
+        end
     end
 
     def edit
@@ -50,6 +51,7 @@ class TrainingsController < ApplicationController
             redirect_to @trainings
         else 
             render :edit
+        end
     end
 
     def destroy

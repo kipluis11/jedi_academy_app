@@ -47,7 +47,7 @@ class MastersController < ApplicationController
     private
 
     def master_params
-        params.require(.master).permit(:name, :preferred_sabre_color, :sabre_style)
+        params.require(master).permit(:name, :preferred_sabre_color, :sabre_style)
     end
 
     def master_view_only!
