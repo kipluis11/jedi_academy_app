@@ -19,7 +19,7 @@ class MastersController < ApplicationController
     end
 
     def show
-        @master = Master.find_by(params[:id])
+        @master = Master.find_by_id(params[:id])
     end
 
     def edit

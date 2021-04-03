@@ -1,4 +1,4 @@
-class DeviseController < ApplicationController
+class AdminController < ApplicationController
 
     def registrations
     end

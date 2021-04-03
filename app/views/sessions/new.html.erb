@@ -1,0 +1,13 @@
+<h2>Login you must, ... to continue your training ... </h2>
+
+<p><%= flash[:error] %></p>
+
+<%= simple_form_for :user do |f| %>
+  <%= f.input :username, label: 'Your username please', error: 'Username you must provide, please focus and specify one' %>
+  <br>
+   <br>
+  <%= f.input :password, hint: 'Your thoughts, you must protect.' %>
+  <br>
+   <br>
+  <%= f.button :submit %>
+<% end %>

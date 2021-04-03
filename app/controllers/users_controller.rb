@@ -12,14 +12,17 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id 
-            redirect_to @user
+            redirect_to @user  #can also be user_path(@user), rmember this if bugs occur.
+       # if @user.try(:authenticate, params[:user][:password])
+            #session[:user_id] = @user.id
+            #redirect_to @user  
         else
             render :new
         end
     end
 
     def show #I want this to show current user 
-        @users = User.find_by(params[:id])
+        @users = User.find_by_id(params[:id])
     end
 
     private

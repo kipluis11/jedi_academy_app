@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
+  #post '/signup' => 'users#create' #only need if I want a /signup page. 
+  delete '/logout' => 'sessions#destroy'
 
   resources :masters do 
     resources :trainings, only: [:index, :show]
